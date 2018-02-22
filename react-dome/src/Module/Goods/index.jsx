@@ -10,7 +10,7 @@ class Goods extends React.Component {
       <div>
         <Header></Header>
         <div className="commonMain">
-          (｡･∀･)ﾉﾞ嗨！
+          xxx嗨！
         </div>
       </div>
     );
