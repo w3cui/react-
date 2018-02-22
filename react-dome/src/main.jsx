@@ -7,3 +7,4 @@ import routes from "./Routes/routes";
 ReactDOM.render((
   <Router history={hashHistory} routes={routes} ></Router>
 ), document.getElementById("myApp"));
+// 你加在那里啊？

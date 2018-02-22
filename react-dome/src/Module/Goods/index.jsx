@@ -12,6 +12,7 @@ class Goods extends React.Component {
         <div className="commonMain">
           xxx嗨！
         </div>
+        {this.props.children}
       </div>
     );
   }
