@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {hashHistory, Router, Route, Link } from 'react-router';
+import 'weui';
+import 'react-weui/build/packages/react-weui.css';
 
 import routes from "./Routes/routes";
 

@@ -75,7 +75,7 @@ module.exports = {
                 APP_DIR
             ]
         }, {
-            test: /\.scss$/,
+            test: /\.sass$/,
             loader: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
                 use: 'css-loader?!sass-loader'
@@ -103,7 +103,7 @@ module.exports = {
         contentBase: BUILD_DIR,
         open : true,
         port: port,
-        inline: true
+        inline: false
     },
     plugins: [
         //缩小打包体积
