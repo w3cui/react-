@@ -57,32 +57,8 @@ module.exports = {
                 APP_DIR
             ]
         }, {
-            test: /\.css$/,
-            loader: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: 'css-loader?modules'
-            }),
-            include: [
-                APP_DIR
-            ]
-        }, {
-            test: /\.less$/,
-            loader: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: 'css-loader?!less-loader'
-            }),
-            include: [
-                APP_DIR
-            ]
-        }, {
-            test: /\.sass$/,
-            loader: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: 'css-loader?!sass-loader'
-            }),
-            include: [
-                APP_DIR
-            ]
+            test: /\.(css|less)$/,
+            use: ['style-loader', 'css-loader', 'less-loader'],
         }, {
             test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
             loader: 'url-loader',

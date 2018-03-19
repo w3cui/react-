@@ -62,7 +62,7 @@
     "moment": "~2.20.1",
     "rc-queue-anim": "^1.4.1",
     "rc-tween-one": "~1.7.3",
-    "react": "^16.2.0",
+    "react": "^16.0.0",
     "react-copy-to-clipboard": "~5.0.1",
     "react-dom": "^16.2.0",
     "react-redux": "~5.0.6",
@@ -72,7 +72,7 @@
     "redux": "~3.7.2",
     "redux-actions": "~2.2.1",
     "redux-thunk": "~2.2.0",
-    "uiw": "uiw-react/uiw",
+    "uiw": "~1.7.0",
     "webpack": "~3.10.0",
     "weui": "^1.1.2"
   }
