@@ -3,66 +3,21 @@ import { Lifecycle } from 'react-router'
 import Header from '../Common/header';
 import ReactQMap from 'react-qmap';
 
-/*表单组件*/
+import { Button, DatePicker, Layout } from 'uiw';
+import Forms from './commont/form';
 
-class Forms extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state ={
-      name:"",
-      password:""
-    }
-    this.getChange = this.getChange.bind(this);
-    this.pushSubmit = this.pushSubmit.bind(this);
-
-  }
-
-
-  getChange(event){    
-    console.log(event.target.name);
-    this.setState({
-      [event.target.name]:event.target.value
-    });
-  }
-
-  pushSubmit(event){
-    //阻止提交
-    console.log(this.state);
-    event.preventDefault();
-  }
-
-  render(){
-    return (
-      <form onSubmit={ this.pushSubmit } >
-        <input type="text" name="name" placeholder="账号" onChange = { this.getChange } value = {this.state.name} />
-        <input type="password"  name="password" placeholder="密码" onChange = { this.getChange } value = {this.state.password} />
-        <input type="submit" />
-        <hr />
-        姓名：{this.state.name} <br/>
-        密码：{this.state.password}
-        <hr/>
-        <ReactQMap 
-          center={{latitude: 39.96693, longitude: 116.49369}} 
-          initialOptions={{zoomControl: true, mapTypeControl: true}} 
-          apiKey="2U5BZ-6VEW3-HQF35-YQ2HK-GCXOF-SIFTZ"
-          style={{height: 300}} 
-        />
-      </form>
-      );
-  }
-
-};
 
 class Goods extends React.Component {
   // 假设 Home 是一个 route 组件，它可能会使用
   // Lifecycle mixin 去获得一个 routerWillLeave 方法。
-  mixins: [ Lifecycle ]
+  mixins: [Lifecycle]
 
-  constructor(props){
+  constructor(props) {
     super(props);
     this.isSaved = true;
     this.state = {
-      isBack : false
+      isBack: false,
+      setValue: new Date()
     }
 
     // 这个绑定是必要的，使`this`在回调中起作用
@@ -79,28 +34,62 @@ class Goods extends React.Component {
   }
 
   // 事件绑定
-  getClickUpload(){
-    console.log("绑定成功","font-size:15px;")
+  getClickUpload() {
+    console.log("绑定成功", "font-size:15px;")
     //注意跟新state数据方式
     this.setState(prevState => ({
       isBack: !prevState.isBack
     }))
   }
+
   render() {
+
+    const { Row, Col } = Layout;
     return (
-      <div>
-        <Header></Header>
-        <div style={{background: this.state.isBack ? '#f1f1f1' : '#ff0'  }}  className="commonMain" onClick={ this.getClickUpload }>
-          xxx嗨！范德萨范德萨
+      <Row gutter="20">
+        <Col span="4"><Header></Header></Col>
+        <Col span="20">
+
+          <div style={{ background: this.state.isBack ? '#f1f1f1' : '#ff0' }} className="commonMain" onClick={this.getClickUpload}>
+            xxx嗨！范德萨范德萨
           {this.isSaved}
-          {this.props.id}
-        </div>
-        {this.props.children}
-        <Forms></Forms>
-      </div>
+            {this.props.id}
+          </div>
+          {this.props.children}
+          <Forms></Forms>
+          {/* uiw 时间组件 */}
+          <hr />
+          <DatePicker
+            showToday
+            value={this.setValue}
+            shortcutinline={true}
+            shortcuts={[
+              {
+                text: '昨天',
+                onClick: () => {
+                  this.setState({ setValue: new Date(Date.now() - 86400000) })
+                }
+              }, {
+                text: '一周前',
+                onClick: () => {
+                  this.setState({ setValue: new Date(Date.now() - 86400000 * 7) })
+                }
+              }, {
+                text: '一月前',
+                onClick: () => {
+                  this.setState({ setValue: new Date(Date.now() - 86400000 * 30) })
+                }
+              }
+            ]}
+          />
+          <DatePicker showToday={true} />
+          <DatePicker showToday={true} value={new Date()} />
+          <DatePicker showToday={true} value={new Date()} weekLabel={['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']} />
+        </Col>
+      </Row>
     );
   }
-} 
+}
 
 
 
