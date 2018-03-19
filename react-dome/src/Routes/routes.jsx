@@ -5,19 +5,6 @@ import {Route, Link ,IndexRoute} from 'react-router';
 import App from "@/Module/index";
 import Goods from "@/Module/goods";
 
-class AppMain extends React.Component {
-  constructor(props){
-    super(props);
-  }
-  render() {
-    return (
-      <div>
-      	{this.props.children}
-      </div>
-    );
-  }
-};
-
 let routes = (
 	<div>
 		<Route path="/" component={App}/> 
