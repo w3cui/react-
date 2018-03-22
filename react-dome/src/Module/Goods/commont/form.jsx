@@ -69,6 +69,8 @@ class Forms extends React.Component {
         sm: { span: 14, offset: 4, },
       },
     }
+    const { labelCol } = formItemLayout;
+    console.log(labelCol);
     return (
       <div>
         <Form style={{ width: 500, padding: "30px 0 0 0" }} className="sss" ref={(component) => { this.form = component }} model={form} rules={rules}>
