@@ -26,7 +26,18 @@ class Goods extends React.Component {
   }
   // 组件即将开始渲染 钩子
   componentDidMount(e) {
-    console.log(e);
+    console.log(this);
+    // document.getElementsByTagName('head')[0].appendChild((function () {
+    //   var scriptBuild = document.createElement('script');
+    //   alert(scriptBuild);
+    //   scriptBuild.type = "application/javascript";
+    //   scriptBuild.charset = 'utf-8';
+    //   scriptBuild.src = "http://p1static.dataoke.com/web/js/jquery-1.12.4.min.js";
+    //   scriptBuild.addEventListener('load', function (e) {
+    //     console.log("1", e);
+    //   }, false);
+    //   return scriptBuild;
+    // })());
   }
   // 消耗组件 钩子
   componentWillUnmount(e) {

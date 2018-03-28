@@ -47,8 +47,8 @@ class Header extends React.Component {
 
         <Menu.Item index="4"><Icon type="star-on" />电器城</Menu.Item>
 
-        <Menu.SubMenu index="5" title={<span><Icon type="verification" /><span>折叠菜单</span></span>}>
-          <Menu.Item index="5-1">生活电器</Menu.Item>
+        <Menu.SubMenu index="5" title={<span><Icon type="verification" /><span>AntUi</span></span>}>
+          <Menu.Item index="5-1"><NavLink to="ant/index">生活电器</NavLink></Menu.Item>
           <Menu.Item index="5-2">厨房电器</Menu.Item>
           <Menu.Item index="5-3">健康电器</Menu.Item>
           <Menu.Item index="5-4">手机配件</Menu.Item>

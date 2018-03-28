@@ -9,6 +9,14 @@
     "plugins": [
         "transform-decorators-legacy",
         "transform-class-properties",
-        "syntax-jsx"
+        "syntax-jsx",
+        [
+            "import",
+            {
+                "libraryName": "antd",
+                "libraryDirectory": "es",
+                "style": "css"
+            }
+        ]
     ]
 }
