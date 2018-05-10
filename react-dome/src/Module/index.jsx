@@ -2,7 +2,7 @@ import React from 'react';
 import { Router, Route, Link } from 'react-router';
 import { Button, Layout } from 'uiw';
 import Header from './Common/header';
-
+import {getQueryActivities} from '@/Config/api';
 
 class App extends React.Component {
   constructor(props) {
@@ -16,7 +16,13 @@ class App extends React.Component {
       loading5: true,
       loading2: false
     }
-  };
+  }
+  componentDidMount(){
+    getQueryActivities().then(response => { 
+      console.log(response);
+    });
+    
+  }
   render() {
     const { Row, Col } = Layout;
     return (
