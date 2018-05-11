@@ -1,8 +1,11 @@
 import React from 'react';
-import { Router, Route, Link } from 'react-router';
-import { Button, Layout } from 'uiw';
+import { Router, Route, Link} from 'react-router';
+import { Button, Layout, Input} from 'uiw';
 import Header from './Common/header';
 import {getQueryActivities} from '@/Config/api';
+
+import { digitUppercase } from '@/utils/utils';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -14,14 +17,24 @@ class App extends React.Component {
       loading3: false,
       loading4: false,
       loading5: true,
-      loading2: false
+      loading2: false,
+      anum:0,
+      ase:0
     }
   }
   componentDidMount(){
     getQueryActivities().then(response => { 
       console.log(response);
     });
+
+    this.setState({ ase: digitUppercase(this.state.anum) });
     
+  }
+  onChange(key, e, value){
+    let { anum, ase  } = this.state;
+    anum = value;
+    ase = digitUppercase(value);
+    this.setState({ anum, ase });
   }
   render() {
     const { Row, Col } = Layout;
@@ -29,6 +42,14 @@ class App extends React.Component {
       <Row gutter="20" className="app-main" >
         <Col span="4"><Header></Header></Col>
         <Col span="20">
+          <p> {this.state.ase} </p>
+          <Input
+            value={this.state.anum}
+            preIcon="user"
+            placeholder="请输入用户名"
+            type="number"
+            onChange={this.onChange.bind(this, 'name')} />
+
           <Button size="mini" loading={this.state.loading}
             onClick={() => {
               console.log("loading:", this.state.loading)

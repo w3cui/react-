@@ -43,9 +43,9 @@ class Header extends React.Component {
           <Menu.Item index="2-3">美容洗护</Menu.Item>
         </Menu.SubMenu>
 
-        <Menu.Item disabled index="3"><Icon type="windows" />淘抢购</Menu.Item>
+        <Menu.Item index="3"><NavLink to="/ant/index" ><Icon type="windows" />淘抢购</NavLink></Menu.Item>
 
-        <Menu.Item index="4"><Icon type="star-on" />电器城</Menu.Item>
+        <Menu.Item disabled index="4"><Icon type="star-on" />电器城</Menu.Item>
 
         <Menu.SubMenu index="5" title={<span><Icon type="verification" /><span>AntUi</span></span>}>
           <Menu.Item index="5-1"><NavLink to="ant/index">生活电器</NavLink></Menu.Item>

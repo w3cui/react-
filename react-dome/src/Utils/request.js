@@ -68,11 +68,16 @@ export default function request(url, options) {
     url: url,
     ...newOptions
   })
+
   .then(checkStatus)
+  
+  // 状体拦截
   .catch(e => {
     // const { dispatch } = store;
     if (!e.request) return this;
     const { request: { status } } = e;
+    const { request } = e;
+    checkStatus(request);
     if (status === 401) {
       // dispatch({
       //   type: 'login/logout',
